@@ -61,6 +61,30 @@ sequenceDiagram
 
 <br />
 
+## Ways to use Regional Services
+
+Regional Services regionalizes traffic through several mechanisms, depending on how your traffic reaches Cloudflare. Most customers use only one of these:
+
+- **Regional Hostnames** — Regionalize proxied hostnames. You assign a region to a hostname through the [Regional Hostnames API](/data-localization/regional-services/get-started/) or the dashboard, and Cloudflare steers traffic for that hostname to in-region data centers. This is the most common option and is generally available. To set it up, see [Get started](/data-localization/regional-services/get-started/).
+
+- **Regionalized Spectrum Applications** — Regionalize [Spectrum](/spectrum/) HTTP/S applications. Spectrum applications use a separate regionalization mechanism from the Regional Hostnames API, and work with both [Static IPs](/byoip/concepts/static-ips/) and [Bring Your Own IP (BYOIP)](/byoip/). To set it up, see [Regionalized Spectrum Applications](/data-localization/regional-services/spectrum-applications/).
+
+- **Regionalized IP Bindings** — Bind a [BYOIP](/byoip/) prefix to a region so that traffic destined for those IP addresses is processed in-region. This option requires the Regional Services and Regional Services for BYOIP entitlements. To set it up, see [Regionalized IP Bindings](/data-localization/regional-services/ip-bindings/).
+
+:::note[A note on naming]
+
+These options were previously labeled with version numbers (Regional Services v1 and v2). Cloudflare is moving away from those labels: the version numbers implied that each option superseded the last, when in fact each is a distinct approach with its own tradeoffs. None is strictly better than the others — the right choice depends on how your traffic reaches Cloudflare and which use case you need to support. The current names describe what each option does so you can choose accordingly.
+
+The following table maps the current names to terms you might have seen elsewhere:
+
+| Current name                       | Previously known as                                    | Availability         |
+| ---------------------------------- | ------------------------------------------------------ | -------------------- |
+| Regional Hostnames                 | Regional Services v2 (RSv2)                            | GA                   |
+| Regionalized Spectrum Applications | Regional Services v1 (RSv1)                            | GA                   |
+| Regionalized IP Bindings           | Regional Services for BYOIP, regionalized address maps | Entitlement required |
+
+:::
+
 ## Additional information
 
 For more details about the products that are compatible with Regional Services, refer to the [Cloudflare product compatibility](/data-localization/compatibility/) page. If you have purchased these products as part of your Enterprise subscription plan, Cloudflare will only terminate TLS connections for these products in the geographic region you have configured for Regional Services.

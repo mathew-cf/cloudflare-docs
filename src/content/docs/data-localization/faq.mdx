@@ -29,6 +29,24 @@ Once you have purchased DLS, your account team will enable DLS on your account, 
 
 Not yet. HTTP/3 uses the QUIC transport protocol, which is not currently compatible with Regional Services.
 
+## Can I apply Regional Services to only part of my traffic?
+
+Yes. Regional Services is not all-or-nothing. You choose which hostnames or zones are regionalized by assigning a region to each one, and all other traffic continues to be served from Cloudflare's global network as usual. For example, you can regionalize `eu.example.com` to the European Union while `www.example.com` keeps using the global network. Different hostnames can also use different regions.
+
+## How is traffic from users outside the configured region handled?
+
+Regional Services accepts connections at any Cloudflare data center worldwide. When a request arrives outside the configured region, Cloudflare forwards it — still encrypted — to a data center inside the region, where TLS termination (decryption) and all Layer 7 processing take place. As a result, requests from users far from the configured region experience additional latency corresponding to the round trip to the in-region data center.
+
+If you want users inside a region to benefit from local processing while still serving a global audience, consider using a regionalized hostname for in-region users (for example, `eu.example.com`) alongside a non-regionalized hostname for everyone else (for example, `www.example.com`).
+
+## Which Regional Services option works with Static IPs or BYOIP?
+
+- [Static IPs](/byoip/concepts/static-ips/) are supported only by Regionalized Spectrum Applications.
+- [BYOIP](/byoip/) is supported by both Regionalized Spectrum Applications and [Regionalized IP Bindings](/data-localization/regional-services/ip-bindings/).
+- Regional Hostnames use Cloudflare's shared anycast IP addresses and do not support Static IPs.
+
+For an overview of each option, see [Ways to use Regional Services](/data-localization/regional-services/#ways-to-use-regional-services).
+
 ## Are there other options if I prefer not to have Cloudflare handle TLS termination (decryption)?
 
 Yes, you have these options available:
