@@ -32,7 +32,7 @@ Before you create a binding, make sure that:
 
 - Your account has both the **Regional Services** and **Regional Services for BYOIP** entitlements enabled. Contact your account team to enable them.
 - You have [onboarded a BYOIP prefix](/byoip/) to Cloudflare and know its prefix ID.
-- The region you want to use exists for your account. See [List available regions](#list-available-regions).
+- The region you want to use exists for your account. Refer to [List available regions](#list-available-regions).
 - Your [API token](/fundamentals/api/get-started/create-token/) has permission to manage both Data Localization and Addressing resources.
 
 ## List available regions
@@ -159,7 +159,7 @@ After you create or change a binding, it can take a few hours for the change to 
 
 ## Update the region for a binding
 
-Change the region a binding points to. Only the `region_key` can be updated; to change the CIDR, delete the binding and create a new one.
+Change the region a binding points to. Only the `region_key` can be updated. To change the CIDR, delete the binding and create a new one.
 
 <CURL
 	url="https://api.cloudflare.com/client/v4/accounts/{account_id}/dls/regional_services/prefix_bindings/{binding_id}"

@@ -38,11 +38,11 @@ You create a Spectrum HTTP/S application for each hostname you want to regionali
 
 2. **Create a Spectrum application for your hostname.** Create an [HTTP/HTTPS Spectrum application](/spectrum/get-started/) for each hostname you want to regionalize. Set the [application type](/spectrum/reference/configuration-options/#application-type) to _HTTP/HTTPS_ so that traffic is routed through Cloudflare's application-layer pipeline. You can create one Spectrum application per zone.
 
-   To use your own addresses, create the application via the API and set `origin_direct` to your [Static IP](/spectrum/about/static-ip/) or [BYOIP](/spectrum/about/byoip/) address.
+   To use your own addresses, create the application via the API and set `edge_ips` (with `type: "static"`) to your [Static IP](/spectrum/about/static-ip/) or [BYOIP](/spectrum/about/byoip/) addresses. The `origin_direct` field still points to your origin server.
 
 3. **Configure the processing region.** Your account team assigns the [region](/data-localization/region-support/) to your zone. You can use any standard region, or request a custom region if your compliance requirements are not met by the standard regions.
 
-4. **Verify regionalization.** Confirm that traffic is processed in the expected region. See [Verify the configuration](#verify-the-configuration).
+4. **Verify regionalization.** Confirm that traffic is processed in the expected region. Refer to [Verify the configuration](#verify-the-configuration).
 
 </Steps>
 
