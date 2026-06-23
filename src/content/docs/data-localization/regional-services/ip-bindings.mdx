@@ -22,7 +22,7 @@ This complements the other ways to use [Regional Services](/data-localization/re
 
 ## How it works
 
-A prefix binding maps a CIDR (within a BYOIP prefix you own) to a region key. After Cloudflare provisions the binding, traffic to addresses in that CIDR terminates TLS and is processed only inside the configured region, following the same in-region processing model described in [Regional Services](/data-localization/regional-services/).
+A prefix binding maps a CIDR (within a BYOIP prefix you own) to a [region key](#list-available-regions) (for example, `us` or `eu`). After Cloudflare provisions the binding, traffic to addresses in that CIDR terminates TLS and is processed only inside the configured region, following the same in-region processing model described in [Regional Services](/data-localization/regional-services/).
 
 Bindings are managed through the Data Localization Suite API under `/accounts/{account_id}/dls/`.
 
