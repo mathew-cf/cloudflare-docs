@@ -31,7 +31,11 @@ Not yet. HTTP/3 uses the QUIC transport protocol, which is not currently compati
 
 ## Can I apply Regional Services to only part of my traffic?
 
-Yes. Regional Services is not all-or-nothing. You choose which hostnames or zones are regionalized by assigning a region to each one, and all other traffic continues to be served from Cloudflare's global network as usual. For example, you can regionalize `eu.example.com` to the European Union while `www.example.com` keeps using the global network. Different hostnames can also use different regions.
+Yes. [Regional Services](/data-localization/regional-services/) is not all-or-nothing. You choose which hostnames or zones are regionalized by assigning a region to each one, and all other traffic continues to be served from Cloudflare's global network as usual. For example, you can regionalize `eu.example.com` to the European Union while `www.example.com` keeps using the global network. Different hostnames can also use different regions.
+
+This also lets you keep latency-sensitive, non-sensitive content global. For instance, you can serve static CDN content that does not normally contain PII — such as product images on a global `assets.example.com` hostname — from Cloudflare's global network for best performance, while regionalizing only the hostnames that handle personal data.
+
+The granularity depends on which [Regional Services option](/data-localization/regional-services/#ways-to-use-regional-services) you use. With Regional Hostnames, you assign a region per hostname. With Regionalized Spectrum Applications, the region is assigned per zone and applies to all Spectrum HTTP/S applications in that zone.
 
 ## How is traffic from users outside the configured region handled?
 

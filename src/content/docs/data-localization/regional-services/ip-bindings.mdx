@@ -18,7 +18,7 @@ Regionalized IP Bindings requires the Regional Services and Regional Services fo
 
 Regionalized IP Bindings let you regionalize traffic at the IP layer for prefixes you bring to Cloudflare through [Bring Your Own IP (BYOIP)](/byoip/). You bind a CIDR from one of your prefixes to a region, and Cloudflare processes traffic destined for those IP addresses only within the data centers in that region.
 
-This complements the other ways to use [Regional Services](/data-localization/regional-services/): where [Regional Hostnames](/data-localization/regional-services/get-started/) regionalize traffic by hostname, Regionalized IP Bindings regionalize traffic by IP prefix — useful when you address services by IP rather than hostname.
+This complements the other ways to use [Regional Services](/data-localization/regional-services/): where [Regional Hostnames](/data-localization/regional-services/regional-hostnames/) regionalize traffic by hostname, Regionalized IP Bindings regionalize traffic by IP prefix — ideal for address-map deployments and any service you address by IP rather than hostname.
 
 ## How it works
 
@@ -33,7 +33,20 @@ Before you create a binding, make sure that:
 - Your account has both the **Regional Services** and **Regional Services for BYOIP** entitlements enabled. Contact your account team to enable them.
 - You have [onboarded a BYOIP prefix](/byoip/) to Cloudflare and know its prefix ID.
 - The region you want to use exists for your account. Refer to [List available regions](#list-available-regions).
-- Your [API token](/fundamentals/api/get-started/create-token/) has permission to manage both Data Localization and Addressing resources.
+- Your [API token](/fundamentals/api/get-started/create-token/) has the required permissions. Refer to [Required API token permissions](#required-api-token-permissions).
+
+## Required API token permissions
+
+These endpoints are authorized at the account level. The permissions you need depend on the operation:
+
+| Operation                                          | Required token permissions                    |
+| -------------------------------------------------- | --------------------------------------------- |
+| List regions, get a region, list or get bindings   | **DLS: Read**                                 |
+| Create, update, or delete a prefix binding         | **DLS: Write** _and_ **IP Prefixes: Write**   |
+
+Write operations require **IP Prefixes: Write** in addition to **DLS: Write** because the binding is created against a BYOIP prefix that you own in [Addressing](/byoip/) — Cloudflare verifies that you have permission to modify that prefix. A token with only **DLS: Write** can read regions and bindings but will be rejected when it tries to create or change a binding.
+
+The **Super Administrator** and **Administrator** roles include all of these permissions. A custom role works as long as it includes the permission groups above.
 
 ## List available regions
 
@@ -69,7 +82,12 @@ Each binding references a region by its `region_key` (for example, `us` or `eu`)
 }
 ```
 
-Use the `type` query parameter (`managed` or `custom`) to filter the results. Results are paginated — pass the `cursor` value from a response to fetch the next page.
+Use the `type` query parameter to filter the results by region type:
+
+- `managed` — the standard, Cloudflare-defined regions (for example, `eu` or `us`). These are the regions listed on [Available regions and product support](/data-localization/region-support/).
+- `custom` — bespoke regions configured for your account by your account team, restricting processing to a specific set of data centers when the managed regions do not meet your compliance requirements.
+
+Results are paginated — pass the `cursor` value from a response to fetch the next page.
 
 <Details header="Get a single region">
 
@@ -115,6 +133,8 @@ Bind a CIDR from one of your BYOIP prefixes to a region. The `cidr` must fall wi
 :::note
 
 After you create or change a binding, it can take a few hours for the change to propagate across Cloudflare's network before traffic is regionalized at the edge.
+
+During this propagation window, your addresses remain fully available and reachable globally — there is no downtime. Traffic is served from Cloudflare's global network as usual until the binding takes effect, at which point TLS termination and processing for those addresses move into the configured region. Because traffic is never interrupted, you can create bindings ahead of a migration or compliance deadline and they will begin regionalizing once propagation completes.
 
 :::
 
