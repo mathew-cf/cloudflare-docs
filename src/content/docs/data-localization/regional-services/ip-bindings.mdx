@@ -134,7 +134,9 @@ Bind a CIDR from one of your BYOIP prefixes to a region. The `cidr` must fall wi
 
 After you create or change a binding, it can take a few hours for the change to propagate across Cloudflare's network before traffic is regionalized at the edge.
 
-During this propagation window, your addresses remain fully available and reachable globally — there is no downtime. Traffic is served from Cloudflare's global network as usual until the binding takes effect, at which point TLS termination and processing for those addresses move into the configured region. Because traffic is never interrupted, you can create bindings ahead of a migration or compliance deadline and they will begin regionalizing once propagation completes.
+Connectivity to these addresses is not interrupted while the binding propagates — existing traffic continues to be served. However, a binding must finish propagating and become **active** before you can add its addresses to an [address map](/byoip/address-maps/) (including creating a new address map that contains them). Until the binding is active, those operations are rejected.
+
+For this reason, create the binding **first** and allow it to finish propagating before you configure address maps for the affected addresses.
 
 :::
 
