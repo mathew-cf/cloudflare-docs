@@ -69,7 +69,7 @@ Regional Services regionalizes traffic through several mechanisms, depending on 
 
 - **Regionalized Spectrum Applications** — Regionalize [Spectrum](/spectrum/) HTTP/S applications. Spectrum applications use a separate regionalization mechanism from the Regional Hostnames API, and work with both [Static IPs](/byoip/concepts/static-ips/) and [Bring Your Own IP (BYOIP)](/byoip/). To set it up, refer to [Regionalized Spectrum Applications](/data-localization/regional-services/spectrum-applications/).
 
-- **Regionalized IP Bindings** — Bind a [BYOIP](/byoip/) prefix to a region so that traffic destined for those IP addresses is processed in-region. This option requires the Regional Services and Regional Services for BYOIP entitlements. To set it up, refer to [Regionalized IP Bindings](/data-localization/regional-services/ip-bindings/).
+- **Regionalized IP Bindings** — Bind a [BYOIP](/byoip/) prefix to a region so that traffic destined for those IP addresses is processed in-region. Because bindings are managed through the API as address maps, this option is well suited to broad configurations (whole prefixes, zones, or accounts) and is fully self-serve once entitlements are enabled — many customers find it simpler to manage than Regionalized Spectrum Applications. This option requires the Regional Services and Regional Services for BYOIP entitlements. To set it up, refer to [Regionalized IP Bindings](/data-localization/regional-services/ip-bindings/).
 
 The following table compares the three options to help you choose:
 
@@ -77,7 +77,7 @@ The following table compares the three options to help you choose:
 | ------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------- | ------------------------ | ---------------------------- | ------------ | -------------------------------------------------------------- |
 | [Regional Hostnames](/data-localization/regional-services/regional-hostnames/)        | Cloudflare shared anycast IPs  | Per hostname                       | Not supported            | Regional Hostnames API       | GA           | Most deployments; regionalizing specific proxied hostnames     |
 | [Regionalized Spectrum Applications](/data-localization/regional-services/spectrum-applications/) | Dedicated IP via Spectrum app  | Per zone (all Spectrum HTTP/S apps) | Static IPs and BYOIP     | Spectrum API                 | GA           | Traffic addressed by IP that needs Static IPs or BYOIP         |
-| [Regionalized IP Bindings](/data-localization/regional-services/ip-bindings/)         | BYOIP prefix at the IP layer   | Per CIDR / IP prefix               | BYOIP only               | Data Localization Suite API  | GA           | Address-map deployments; regionalizing at the IP layer         |
+| [Regionalized IP Bindings](/data-localization/regional-services/ip-bindings/)         | BYOIP prefix at the IP layer   | Per CIDR / IP prefix (scales to whole prefixes) | BYOIP only               | Data Localization Suite API  | GA           | Broad, self-serve regionalization managed simply via address maps |
 
 :::note[A note on naming]
 
