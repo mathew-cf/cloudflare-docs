@@ -51,6 +51,12 @@ If you want users inside a region to benefit from local processing while still s
 
 For an overview of each option, refer to [Ways to use Regional Services](/data-localization/regional-services/#ways-to-use-regional-services).
 
+## What is the difference between managed and custom regions?
+
+**Managed regions** are predefined regions that Cloudflare maintains (for example, `eu` or `us`) and are available to all accounts. **Custom regions** are tailored to your account, restricting processing to a specific set of data centers when the managed regions do not meet your compliance requirements. Custom regions are set up through your account team and are available for Regionalized Spectrum Applications and Regionalized IP Bindings, but not for Regional Hostnames.
+
+Managed and custom regions apply to Regional Services. Customer Metadata Boundary and Geo Key Manager use their own region settings. For details, refer to [Region support](/data-localization/region-support/#region-types).
+
 ## Are there other options if I prefer not to have Cloudflare handle TLS termination (decryption)?
 
 Yes, you have these options available:

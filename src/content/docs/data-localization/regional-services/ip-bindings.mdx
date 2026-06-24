@@ -82,12 +82,7 @@ Each binding references a region by its `region_key` (for example, `us` or `eu`)
 }
 ```
 
-Use the `type` query parameter to filter the results by region type:
-
-- `managed` — the standard, Cloudflare-defined regions (for example, `eu` or `us`). These are the regions listed on [Available regions and product support](/data-localization/region-support/).
-- `custom` — bespoke regions configured for your account by your account team, restricting processing to a specific set of data centers when the managed regions do not meet your compliance requirements.
-
-Results are paginated — pass the `cursor` value from a response to fetch the next page.
+Use the `type` query parameter (`managed` or `custom`) to filter the results by [region type](/data-localization/region-support/#region-types). Results are paginated — pass the `cursor` value from a response to fetch the next page.
 
 <Details header="Get a single region">
 

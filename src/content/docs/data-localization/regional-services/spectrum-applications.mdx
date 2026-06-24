@@ -54,7 +54,7 @@ You create a Spectrum HTTP/S application for each hostname you want to regionali
 
    </Details>
 
-3. **Configure the processing region.** The region is assigned by Cloudflare, so communicate and work with your account team to confirm which [region](/data-localization/region-support/) should apply to your zone and to verify it has been configured. You can use any standard region, or request a [custom region](#custom-regions) if your compliance requirements are not met by the standard regions.
+3. **Configure the processing region.** The region is assigned by Cloudflare, so communicate and work with your account team to confirm which [region](/data-localization/region-support/) should apply to your zone and to verify it has been configured. You can use any [managed region](/data-localization/region-support/#region-types), or request a [custom region](#custom-regions) if your compliance requirements are not met by the managed regions.
 
 4. **Verify regionalization.** Confirm that traffic is processed in the expected region. Refer to [Verify the configuration](#verify-the-configuration).
 
@@ -78,7 +78,7 @@ In this example, `MUC` (Munich) confirms that the request was processed in the E
 
 ## Custom regions
 
-If the [standard regions](/data-localization/region-support/) do not match your compliance requirements, you can request a custom region that restricts processing to a specific set of data centers. Custom regions are configured by your account team. To learn more about how custom regions work, refer to the [Custom regions blog post](https://blog.cloudflare.com/custom-regions/).
+If the [managed regions](/data-localization/region-support/#region-types) do not match your compliance requirements, you can request a custom region that restricts processing to a specific set of data centers. Custom regions are set up through your account team. To learn more about how custom regions work, refer to the [Custom regions blog post](https://blog.cloudflare.com/custom-regions/).
 
 ## Related resources
 
