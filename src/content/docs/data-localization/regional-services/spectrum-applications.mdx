@@ -18,7 +18,7 @@ Regionalized Spectrum Applications are configured with the help of your account 
 
 Regionalized Spectrum Applications regionalize HTTP/S traffic using [Spectrum](/spectrum/), Cloudflare's Layer 4 proxy. Unlike [Regional Hostnames](/data-localization/regional-services/regional-hostnames/) — which steer proxied hostnames using Cloudflare's shared anycast IP addresses — a Regionalized Spectrum Application assigns a dedicated IP to your hostname, and that IP signals that all traffic to it must be processed in a specific region.
 
-Choose this option when you need to regionalize traffic that is addressed by IP, or when you need to combine Regional Services with [Static IPs](/byoip/concepts/static-ips/) or [Bring Your Own IP (BYOIP)](/byoip/).
+Choose this option when you need to regionalize traffic that is addressed by IP, or when you need to combine Regional Services with [Spectrum Static IPs](/spectrum/about/static-ip/) or [Bring Your Own IP (BYOIP)](/byoip/).
 
 ## How it works
 
@@ -29,7 +29,7 @@ You create a Spectrum HTTP/S application for each hostname you want to regionali
 - [Spectrum](/spectrum/) is included in your Enterprise contract. Spectrum is an add-on, so it must be part of your contract before it can be enabled.
 - Your account has the **Regional Services** and **Spectrum** entitlements enabled. Contact your account team to enable them.
 - You have a hostname proxied through Cloudflare that you want to regionalize.
-- If you want to use your own addresses, you have onboarded [Static IPs](/byoip/concepts/static-ips/) or a [BYOIP](/byoip/) prefix.
+- If you want to use your own addresses, you have onboarded [Spectrum Static IPs](/spectrum/about/static-ip/) or a [BYOIP](/byoip/) prefix.
 
 ## Set up a Regionalized Spectrum Application
 

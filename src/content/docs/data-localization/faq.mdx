@@ -45,7 +45,7 @@ If you want users inside a region to benefit from local processing while still s
 
 ## Which Regional Services option works with Static IPs or BYOIP?
 
-- [Static IPs](/byoip/concepts/static-ips/) are supported only by Regionalized Spectrum Applications.
+- [Spectrum Static IPs](/spectrum/about/static-ip/) are supported only by Regionalized Spectrum Applications.
 - [BYOIP](/byoip/) is supported by both Regionalized Spectrum Applications and [Regionalized IP Bindings](/data-localization/regional-services/ip-bindings/).
 - Regional Hostnames use Cloudflare's shared anycast IP addresses and do not support Static IPs.
 
@@ -53,9 +53,7 @@ For an overview of each option, refer to [Ways to use Regional Services](/data-l
 
 ## What is the difference between managed and custom regions?
 
-**Managed regions** are predefined regions that Cloudflare maintains (for example, `eu` or `us`) and are available to all accounts. **Custom regions** are tailored to your account, restricting processing to a specific set of data centers when the managed regions do not meet your compliance requirements. Custom regions are set up through your account team and are available for Regionalized Spectrum Applications and Regionalized IP Bindings, but not for Regional Hostnames.
-
-Managed and custom regions apply to Regional Services. Customer Metadata Boundary and Geo Key Manager use their own region settings. For details, refer to [Region support](/data-localization/region-support/#region-types).
+In short, **managed regions** are predefined regions that Cloudflare maintains and are available to all accounts, while **custom regions** are tailored to your account when the managed regions do not meet your compliance requirements. For full details on both region types and which Regional Services options support them, refer to [Region types](/data-localization/region-support/#region-types).
 
 ## Are there other options if I prefer not to have Cloudflare handle TLS termination (decryption)?
 
