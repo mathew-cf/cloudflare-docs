@@ -1,0 +1,19 @@
+src/content/docs/data-localization/regional-services/ip-bindings.mdx
+  s_2311adc58a56e1::t_bb73c5f1cb5982 29-42,56-59,115,123,136,152-180,198,239
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "b44d5837187dbbacd21fdd5f39d5105d9964679c",
+  "prompts": {},
+  "sessions": {
+    "s_2311adc58a56e1": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_08f77ae77ffeqW3PW8d4GXu01H",
+        "model": "claude-opus-4-8"
+      },
+      "human_author": "Mathew Jacob <mathew@cloudflare.com>"
+    }
+  }
+}
